@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>A图片查看check</title>
+    <style>
+        .k1{
+            width: 180px;
+            height: 35px;
+        }
+        .k2{
+            height: 40px;
+        }
+    </style>
+
+    <script>
+        function pix(pid){
+            var url = "https://pixiv.re/" + encodeURIComponent(document.getElementById(pid).value) + ".png";
+            window.open(url, "_blank");
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center">
+        <img src="https://pixiv.re/105020981.png" width="50%"><img>
+    </div>
+
+    <div style="text-align: center">
+        <input class="k1" height="50px" type='text' id="pid" name="/" placeholder='pid'>
+        <input class="k2" type='button' value="提交" onclick="pix('pid')">
+    </div>
+
+</body>
+</html>
