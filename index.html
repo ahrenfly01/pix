@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>A图片查看check</title>
+    <style>
+        .flex {
+            display: flex;
+        }
+        .flex1 {
+            flex: 1;
+        }
+        .flex4 {
+            flex: 4;
+        }
+        .column {
+            flex-direction: column;
+        }
+        。row {
+            flex-direction: row;
+        }
+        .kuang {
+            border: 1px solid blue;
+        }
+        .k1{
+            width: 180px;
+            height: 35px;
+        }
+        .k2{
+            width: 80px;
+            height: 40px;
+        }
+    </style>
+
+    <script>
+        function pix(pid){
+            // 获取图片链接
+            var img_url = "https://pixiv.re/" + encodeURIComponent(document.getElementById(pid).value) + ".png";
+
+            // 创建<img>标签
+            var img = document.createElement("img");
+            img.src = img_url;
+
+            // 添加<img>标签到某个元素中
+            var container = document.getElementById("image_container");
+            container.appendChild(img);
+
+            // 获取文本内容
+            var text_input = img_url;
+
+            // 显示文本
+            var text_display = document.getElementById("text_display");
+            text_display.innerHTML = text_input;
+        }
+    </script>
+</head>
+<body>
+    <div class="flex row kuang">
+        <div class="flex flex1 column kuang" style="align-items: center; padding: 20px">
+            <br><br><br><br><br><br>
+            <input class="k1" type='text' height="50px" style="text-align: center" id="pid" placeholder='pid'>
+            <br>
+            <input class="k2" type='button' value="提交" onclick="pix('pid')">
+            <br><br>
+            <div id="text_display"></div>
+            <br>
+            <img style="text-align: center" src="https://pixiv.re/105020981.png" width="80%" />
+        </div>
+
+        <div class="flex flex4 column" style="text-align: center">
+            <div id="image_container" width="80%"></div>
+        </div>
+    </div>
+
+</body>
+</html>
