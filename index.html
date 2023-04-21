@@ -23,11 +23,11 @@
             border: 1px solid blue;
         }
         .k1{
-            width: 180px;
-            height: 35px;
+            width: 280px;
+            height: 40px;
         }
         .k2{
-            width: 80px;
+            width: 100px;
             height: 40px;
         }
     </style>
@@ -53,25 +53,42 @@
             var text_display = document.getElementById("text_display");
             text_display.innerHTML = text_input;
         }
+        function pasteFromClipboard() {
+			// 访问剪贴板内容
+			navigator.clipboard.readText()
+				.then((text) => {
+					// 将内容放入输入框中
+                    // 去除空格、制表符和换行符的正则表达式
+                    var reg = /\s/g;
+                    // 使用正则表达式替换空格、制表符和换行符为空串
+					document.getElementById("pid").value = text.replace(reg, "");
+				})
+				.catch((err) => {
+					console.error('粘贴板读取失败', err);
+				});
+		}
     </script>
 </head>
 <body>
-    <div class="flex row kuang">
-        <div class="flex flex1 column kuang" style="align-items: center; padding: 20px">
-            <br><br><br><br><br><br><br><br><p>---</p><br><br><br><br><br><br><br><br>
-            <input class="k1" type='text' height="50px" style="text-align: center" id="pid" placeholder='pid'>
-            <br>
-            <input class="k2" type='button' value="提交" onclick="pix('pid')">
-            <br><br>
-            <div id="text_display"></div>
-            <br>
-            <img style="text-align: center" src="https://pixiv.re/105020981.png" width="80%" />
+    <div class="flex flex1 column kuang" style="align-items: center; padding: 20px">
+        <br><p>--</p>
+        <input class="k1" type='text' height="50px" style="text-align: center" id="pid" placeholder='pid'>
+        <br>
+
+        <div>
+            <button class="k2" style="margin-right: 10px" onclick="pasteFromClipboard()">粘贴</button>
+            <button class="k2" onclick="pix('pid')">提交</button>
         </div>
 
-        <div class="flex flex4 column" style="text-align: center">
-            <div id="image_container"></div>
-        </div>
+        <br><br>
+        <div id="text_display"></div>
+        <br>
     </div>
+
+    <div class="flex flex4 column kuang" style="text-align: center">
+        <div id="image_container"></div>
+    </div>
+
 
 </body>
 </html>
