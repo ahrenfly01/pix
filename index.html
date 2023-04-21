@@ -16,19 +16,16 @@
         .column {
             flex-direction: column;
         }
-        。row {
-            flex-direction: row;
-        }
         .kuang {
             border: 1px solid blue;
         }
         .k1{
-            width: 280px;
-            height: 40px;
+            width: 500px;
+            height: 60px;
         }
         .k2{
-            width: 100px;
-            height: 40px;
+            width: 160px;
+            height: 50px;
         }
     </style>
 
@@ -40,7 +37,7 @@
             // 创建<img>标签
             var img = document.createElement("img");
             img.src = img_url;
-            img.width = 600;
+            img.width = 700;
 
             // 添加<img>标签到某个元素中
             var container = document.getElementById("image_container");
@@ -72,11 +69,11 @@
 <body>
     <div class="flex flex1 column kuang" style="align-items: center; padding: 20px">
         <br><p>--</p>
-        <input class="k1" type='text' height="50px" style="text-align: center" id="pid" placeholder='pid'>
+        <input class="k1" type='text' style="text-align: center" id="pid" placeholder='pid'>
         <br>
 
         <div>
-            <button class="k2" style="margin-right: 10px" onclick="pasteFromClipboard()">粘贴</button>
+            <button class="k2" style="margin-right: 20px" onclick="pasteFromClipboard()">粘贴</button>
             <button class="k2" onclick="pix('pid')">提交</button>
         </div>
 
